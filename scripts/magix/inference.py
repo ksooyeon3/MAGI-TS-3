@@ -28,7 +28,7 @@ class FMAGI(object):
         self.comp_size = len(ys)
         for i in range(self.comp_size):
             if (not torch.is_tensor(ys[i])):
-                ys[i] = torch.tensor(ys[i]).double().squeeze()
+                ys[i] = torch.tensor(ys[i]).squeeze()
         self.ys = ys
         self.fOde = dynamic
         self._kiss_gp_initialization(interpolation_orders=interpolation_orders)
@@ -66,11 +66,11 @@ class FMAGI(object):
     def map(self, max_epoch=1000, 
             learning_rate=1e-3, decay_learning_rate=True,
             hyperparams_update=True, dynamic_standardization=False,
-            verbose=False, returnX=False):
+            kappa=1e3, verbose=False, returnX=False):
         gpmat = []
-        u = torch.empty(self.grid_size, self.comp_size).double()
-        x = torch.empty(self.grid_size, self.comp_size).double()
-        dxdtGP = torch.empty(self.grid_size, self.comp_size).double()
+        u = torch.empty(self.grid_size, self.comp_size)
+        x = torch.empty(self.grid_size, self.comp_size)
+        dxdtGP = torch.empty(self.grid_size, self.comp_size)
         with torch.no_grad():
             for i in range(self.comp_size):
                 ti = self.ys[i][:,0]
@@ -132,6 +132,9 @@ class FMAGI(object):
                 dxrdtError = gpmat[i]['LKinv'].matmul(dxrdtOde[:,i]-gpmat[i]['m'].matmul(xr[:,i]-mean))
                 lkh[i] = -0.5/outputscale * dxrdtError.square().mean()
             theta_loss = -torch.sum(lkh)
+            theta_pn1 = dxrdtOde.norm(dim=1).square().mean()
+            theta_pn2 = (torch.randn(self.comp_size) @ torch.func.vmap(torch.func.jacrev(self.fOde))(xr)).norm(dim=1).square().mean()
+            theta_loss = theta_loss + kappa * (theta_pn1 + theta_pn2)
             theta_loss.backward()
             theta_optimizer.step()
         # detach theta gradient
@@ -145,7 +148,7 @@ class FMAGI(object):
             for _ in range(1):
                 state_optimizer.zero_grad()
                 # reconstruct x
-                x = torch.empty_like(u).double()
+                x = torch.empty_like(u)
                 for i in range(self.comp_size):
                     mean = self.gp_models[i].mean_module.constant.item()
                     outputscale = self.gp_models[i].covar_module.outputscale.item()
@@ -173,7 +176,7 @@ class FMAGI(object):
                 print('%d/%d iteration: %.6f' %(epoch+1,max_epoch,state_loss.item()))
 
             # reconstruct x
-            x = torch.empty_like(u).double()
+            x = torch.empty_like(u)
             for i in range(self.comp_size):
                 mean = self.gp_models[i].mean_module.constant.item()
                 outputscale = self.gp_models[i].covar_module.outputscale.item()
@@ -262,6 +265,9 @@ class FMAGI(object):
                         dxrdtError = gpmat[i]['LKinv'].matmul(dxrdtOde[:,i]-gpmat[i]['m'].matmul(xr[:,i]-mean))
                         lkh[i] = -0.5/outputscale * dxrdtError.square().mean()
                     theta_loss = -torch.sum(lkh)
+                    theta_pn1 = dxrdtOde.norm(dim=1).square().mean()
+                    theta_pn2 = (torch.randn(self.comp_size) @ torch.func.vmap(torch.func.jacrev(self.fOde))(xr)).norm(dim=1).square().mean()
+                    theta_loss = theta_loss + kappa * (theta_pn1 + theta_pn2)
                     theta_loss.backward()
                     theta_optimizer.step()
                 if (decay_learning_rate):
@@ -274,13 +280,94 @@ class FMAGI(object):
         if (returnX):
             return (self.grid.numpy(), x.numpy())
 
-    def predict(self, x0, ts, random=False, **params):
-        # obtain prediction by numerical integration
-        if (random):
+    def predict(self, tp, t0, x0, random=False, method="ode", **params):
+        # obtain prediction by ode numerical integration / gaussian process map
+        if (method=="ode" and random):
             self.fOde.train() # training mode with dropout
         else:
             self.fOde.eval() # evaluation mode without dropout
+            for param in self.fOde.parameters():
+                param.requires_grad_(False)
+        # call integrater
         itg = RungeKutta(self.fOde)
-        ts = torch.tensor(ts).double().squeeze()
-        xs = itg.forward(x0, ts, **params)
-        return (xs.numpy())
+        # preprocess input
+        if (not torch.is_tensor(t0)):
+            t0 = torch.tensor(t0).reshape(-1,)
+        if (not torch.is_tensor(tp)):
+            tp = torch.tensor(tp).reshape(-1,)
+        if (not torch.is_tensor(x0)):
+            x0 = torch.tensor(x0).squeeze()
+            if (x0.ndimension()==1):
+                x0 = x0.unsqueeze(0)
+        if (method=="ode"):
+            xp = itg.forward(x0[-1,:], torch.cat((t0[-1].unsqueeze(0),tp)), **params)[1:,:]
+        else:
+            # gaussian process map method
+            # optimize for computing xp
+            xp = torch.empty(tp.size(0), self.comp_size)
+            for j in range(tp.size(0)):
+                ts = torch.cat((t0,tp[:(j+1)]))
+                xs = torch.cat((x0,xp[:(j+1),:]))
+                # obtain intial estimation by ode integration
+                xs[-1,:] = itg.forward(xs[-2,:], ts[-2:], **params)[-1,:].detach()
+                # get hyperparameters
+                with torch.no_grad():
+                    gpmat = []
+                    us = torch.empty_like(xs)
+                    for i in range(self.comp_size):
+                        model = self.gp_models[i]
+                        mean = model.mean_module.constant.item()
+                        outputscale = model.covar_module.outputscale.item()
+                        grid_kernel = model.covar_module.base_kernel
+                        base_kernel = grid_kernel.base_kernel
+                        # compute satte information
+                        LC = base_kernel(ts,ts).add_jitter(1e-6)._cholesky()
+                        LCinv = LC.inverse()
+                        us[:,i] = LCinv.matmul(xs[:,i]-mean) / np.sqrt(outputscale)
+                        # compute gaussian process gradient
+                        m = LCinv.matmul(base_kernel.dCdx2(ts,ts)).t()
+                        LKinv = (base_kernel.d2Cdx1dx2(ts,ts)-m.matmul(m.t())).add_jitter(1e-6)._cholesky().inverse()
+                        m = m.matmul(LCinv)
+                        gpmat.append({'LC':LC,'m':m,'LKinv':LKinv})
+                # perform optimization
+                uo = us[:-1,:].detach().clone() # fixed all prior points
+                un = us[-1:,:].detach().clone() # only optimize for the next
+                un.requires_grad_(True)
+                optimizer = torch.optim.Adam([un], lr=1e-2)
+                for _ in range(10):
+                    optimizer.zero_grad()
+                    # reconstruct x
+                    us = torch.cat((uo,un))
+                    xs = torch.empty_like(us)
+                    for i in range(self.comp_size):
+                        model = self.gp_models[i]
+                        mean = model.mean_module.constant.item()
+                        outputscale = model.covar_module.outputscale.item()
+                        xs[:,i] = mean + np.sqrt(outputscale) * gpmat[i]['LC'].matmul(us[:,i])
+                    dxdtOde = self.fOde(xs)
+                    lkh = torch.zeros((self.comp_size, 2))
+                    for i in range(self.comp_size):
+                        model = self.gp_models[i]
+                        mean = model.mean_module.constant.item()
+                        outputscale = model.covar_module.outputscale.item()
+                        # p(X[I] = x[I]) = P(U[I] = u[I])
+                        lkh[i,0] = -0.5 * us[:,i].square().sum()
+                        # p(X'[I]=f(x[I],theta)|X(I)=x(I))
+                        dxidtError = gpmat[i]['LKinv'].matmul(dxdtOde[:,i]-gpmat[i]['m'].matmul(xs[:,i]-mean))
+                        lkh[i,1] = -0.5/outputscale * dxidtError.square().sum()
+                    loss = -torch.sum(lkh)
+                    loss.backward()
+                    optimizer.step()
+                # reconstruct x
+                un.requires_grad_(False)
+                us = torch.cat((uo,un))
+                xs = torch.empty_like(us)
+                for i in range(self.comp_size):
+                    model = self.gp_models[i]
+                    mean = model.mean_module.constant.item()
+                    outputscale = model.covar_module.outputscale.item()
+                    xs[:,i] = mean + np.sqrt(outputscale) * gpmat[i]['LC'].matmul(us[:,i])
+                xp[j,:] = xs[-1,:]                    
+        t = torch.cat((t0,tp))
+        x = torch.cat((x0,xp))
+        return (t.numpy(), x.numpy())

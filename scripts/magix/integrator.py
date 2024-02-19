@@ -12,12 +12,12 @@ class Integrator(object):
 
     def forward(self, x0, ts, **params):
         if (not torch.is_tensor(x0)):
-            x0 = torch.tensor(x0).double()
+            x0 = torch.tensor(x0)
         if (not torch.is_tensor(ts)):
-            ts = torch.tensor(ts).double().squeeze()
+            ts = torch.tensor(ts).squeeze()
         Nt = ts.size(0)
         p = x0.size(0)
-        Xs = torch.empty(Nt, p).double()
+        Xs = torch.empty(Nt, p)
         Xs[0,:] = x0
         for i in range(Nt-1):
             xt = Xs[i,:]
