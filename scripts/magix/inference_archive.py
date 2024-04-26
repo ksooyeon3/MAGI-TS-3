@@ -69,7 +69,7 @@ class FMAGI(object):
     def map(self, max_epoch=1000, 
             learning_rate=1e-3, decay_learning_rate=True,
             hyperparams_update=True, dynamic_standardization=False,
-            verbose=False, returnX=False):
+            kappa=1e3, verbose=False, returnX=False):
         gpmat = []
         u = torch.empty(self.grid_size, self.comp_size)
         x = torch.empty(self.grid_size, self.comp_size)
@@ -87,19 +87,25 @@ class FMAGI(object):
                 # compute mean for grid points
                 xi = model(self.grid).mean
                 LC = base_kernel(self.grid,self.grid).add_jitter(1e-6)._cholesky()
-                ui = LC.solve_triangular(xi-mean, upper=False) / np.sqrt(outputscale)
+                LCinv = LC.inverse()
+                ui = LCinv.matmul(xi-mean) / np.sqrt(outputscale)
+                # compute uq for the grid points
+                q = grid_kernel(ti,ti).add_jitter(nugget)._cholesky().inverse().matmul(grid_kernel(ti,self.grid))
+                LU = (base_kernel(self.grid,self.grid)-q.t().matmul(q)).add_jitter(1e-6)._cholesky().mul(np.sqrt(outputscale))
                 # compute gradient for grid points
-                m = LC.solve_triangular(base_kernel.dCdx2(self.grid,self.grid).to_dense(), upper=False).t()
+                m = LCinv.matmul(base_kernel.dCdx2(self.grid,self.grid)).t()
                 dxi = m.matmul(ui) * np.sqrt(outputscale)
-                LK = (base_kernel.d2Cdx1dx2(self.grid,self.grid)-m.matmul(m.t())).add_jitter(1e-6)._cholesky()
+                LKinv = (base_kernel.d2Cdx1dx2(self.grid,self.grid)-m.matmul(m.t())).add_jitter(1e-6)._cholesky().inverse()
+                m = m.matmul(LCinv)
                 # compute covariance for x|grid
-                s = LC.solve_triangular(grid_kernel(self.grid,ti).to_dense(), upper=False).t()
-                LQ = (grid_kernel(ti,ti).add_jitter(nugget) - s.matmul(s.t())).add_jitter(1e-6)._cholesky()
+                s = LCinv.matmul(grid_kernel(self.grid,ti))
+                LQinv = (grid_kernel(ti,ti).add_jitter(nugget) - s.t().matmul(s)).add_jitter(1e-6)._cholesky().inverse()
+                s = s.t().matmul(LCinv)
                 # store information
                 u[:,i] = ui
                 x[:,i] = xi
                 dxdtGP[:,i] = dxi
-                gpmat.append({'LC':LC,'m':m,'LK':LK,'s':s,'LQ':LQ})
+                gpmat.append({'LC':LC,'LCinv':LCinv,'m':m,'LKinv':LKinv,'s':s,'LQinv':LQinv,'LU':LU})
 
         # output standardization for fOde
         if (dynamic_standardization):
@@ -119,15 +125,19 @@ class FMAGI(object):
         for param in self.fOde.parameters():
             param.requires_grad_(True)
         for _ in range(200):
-            dxdtOde = self.fOde(x)
+            xr = x.clone()
+            dxrdtOde = self.fOde(xr)
             theta_optimizer.zero_grad()
             lkh = torch.zeros(self.comp_size)
             for i in range(self.comp_size):
+                mean = self.gp_models[i].mean_module.constant.item()
                 outputscale = self.gp_models[i].covar_module.outputscale.item()
-                dxidtGP = gpmat[i]['m'].matmul(u[:,i]) * np.sqrt(outputscale)
-                dxidtError = gpmat[i]['LK'].solve_triangular(dxdtOde[:,i]-dxidtGP, upper=False)
-                lkh[i] = -0.5/outputscale * dxidtError.square().mean()
+                dxrdtError = gpmat[i]['LKinv'].matmul(dxrdtOde[:,i]-gpmat[i]['m'].matmul(xr[:,i]-mean))
+                lkh[i] = -0.5/outputscale * dxrdtError.square().mean()
             theta_loss = -torch.sum(lkh)
+            theta_pn1 = dxrdtOde.norm(dim=1).square().mean()
+            theta_pn2 = (torch.randn(self.comp_size) @ torch.func.vmap(torch.func.jacrev(self.fOde))(xr)).norm(dim=1).square().mean()
+            theta_loss = theta_loss + kappa * (theta_pn1 + theta_pn2)
             theta_loss.backward()
             theta_optimizer.step()
         # detach theta gradient
@@ -154,15 +164,11 @@ class FMAGI(object):
                     # p(X[I] = x[I]) = P(U[I] = u[I])
                     lkh[i,0] = -0.5 * u[:,i].square().sum()
                     # p(Y[I] = y[I] | X[I] = x[I])
-                    xiGP = mean + gpmat[i]['s'].matmul(u[:,i]) * np.sqrt(outputscale)
-                    yiError = gpmat[i]['LQ'].solve_triangular(torch.nan_to_num(self.ys[i][:,1]-xiGP, nan=0.0), upper=False)
-                    lkh[i,1] = -0.5/outputscale * yiError.square().sum() 
-                    lkh[i,1] = lkh[i,1] * self.grid_size / torch.sum(~torch.isnan(self.ys[i][:,1])).item()
+                    yiError = gpmat[i]['LQinv'].matmul(torch.nan_to_num(self.ys[i][:,1]-(mean+gpmat[i]['s'].matmul(x[:,i]-mean)),nan=0.0))
+                    lkh[i,1] = -0.5/outputscale * yiError.square().sum()
                     # p(X'[I]=f(x[I],theta)|X(I)=x(I))
-                    dxidtGP = gpmat[i]['m'].matmul(u[:,i]) * np.sqrt(outputscale)
-                    dxidtError = gpmat[i]['LK'].solve_triangular(dxdtOde[:,i]-dxidtGP, upper=False)
-                    lkh[i,2] = -0.5/outputscale * dxidtError.square().sum() 
-                    # lkh[i,2] = lkh[i,2] / self.grid_size * torch.sum(~torch.isnan(self.ys[i][:,1])).item()
+                    dxidtError = gpmat[i]['LKinv'].matmul(dxdtOde[:,i]-gpmat[i]['m'].matmul(x[:,i]-mean))
+                    lkh[i,2] = -0.5/outputscale * dxidtError.square().sum() / self.grid_size * yiError.size(0)
                 state_loss = -torch.sum(lkh)  / self.grid_size
                 state_loss.backward()
                 state_optimizer.step()
@@ -193,34 +199,29 @@ class FMAGI(object):
                         optimizer = torch.optim.Adam(model.parameters(), lr=1e-2)
                         for _ in range(5):
                             optimizer.zero_grad()
-                            mean = model.mean_module.constant.item()
-                            outputscale = model.covar_module.outputscale.item()
-                            noisescale = model.likelihood.noise.item()
-                            nugget = noisescale / outputscale
-                            grid_kernel = model.covar_module.base_kernel
-                            base_kernel = grid_kernel.base_kernel
-                            # p(X[I] = x[I])
-                            LC = base_kernel(self.grid,self.grid).add_jitter(1e-6)._cholesky() 
-                            ui = LC.solve_triangular(xi-mean, upper=False) / np.sqrt(outputscale)
-                            lkh1 = -0.5 * ui.square().sum()
-                            lkh1 = lkh1 - 0.5 * self.grid_size * np.log(outputscale) - LC.logdet()
+                            # p(X[I] = x[I]) 
+                            LC = model.covar_module.base_kernel.base_kernel(self.grid,self.grid)._cholesky()
+                            LCinv = LC.inverse()
+                            xiError = LCinv.matmul(xi-model.mean_module.constant)
+                            lkh1 = -0.5 / model.covar_module.outputscale * xiError.square().sum()
+                            lkh1 = lkh1 - 0.5 * self.grid_size * model.covar_module.outputscale.log() - LC.logdet()
                             # p(Y[I] = y[I] | X[I] = x[I])
-                            s = LC.solve_triangular(grid_kernel(self.grid,ti).to_dense(), upper=False).t()
-                            LQ = (grid_kernel(ti,ti).add_jitter(nugget) - s.matmul(s.t())).add_jitter(1e-6)._cholesky()
-                            xiGP = mean + s.matmul(ui) * np.sqrt(outputscale)
-                            yiError = LQ.solve_triangular(torch.nan_to_num(yi-xiGP, nan=0.0), upper=False)
-                            lkh2 = -0.5/outputscale * yiError.square().sum()
-                            lkh2 = lkh2 - 0.5 * self.grid_size * np.log(outputscale) - LQ.logdet()
-                            lkh2 = lkh2 * self.grid_size / torch.sum(~torch.isnan(yi)).item()
+                            nugget = model.covar_module.outputscale / model.likelihood.noise
+                            s = LCinv.matmul(model.covar_module.base_kernel(self.grid,ti))
+                            LQ = (model.covar_module.base_kernel(ti,ti).add_diagonal(nugget) - s.t().matmul(s))._cholesky()
+                            s = s.t().matmul(LCinv)
+                            yiError = LQ.inverse().matmul(torch.nan_to_num(yi-(model.mean_module.constant+s.matmul(xi-model.mean_module.constant)),nan=0.0))
+                            lkh2 = -0.5 / model.covar_module.outputscale * yiError.square().sum()
+                            lkh2 = lkh2 - 0.5 * self.grid_size * model.covar_module.outputscale.log() - LQ.logdet()
                             # p(X'[I]=f(x[I],theta)|X(I)=x(I))
-                            m = LC.solve_triangular(base_kernel.dCdx2(self.grid,self.grid).to_dense(), upper=False).t()
-                            LK = (base_kernel.d2Cdx1dx2(self.grid,self.grid)-m.matmul(m.t())).add_jitter(1e-6)._cholesky()
-                            dxidtGP = m.matmul(ui) * np.sqrt(outputscale)
-                            dxidtError = LK.solve_triangular(dxdtOde[:,i]-dxidtGP, upper=False)
-                            lkh3 = - 0.5 / outputscale * dxidtError.square().sum()
-                            lkh3 = lkh3 - 0.5 * self.grid_size * np.log(outputscale) - LK.logdet()
-                            # lkh3 = lkh3 / self.grid_size * torch.sum(~torch.isnan(yi)).item()
-                            loss = -(lkh1 + lkh2 + lkh3) / self.grid_size
+                            m = LCinv.matmul(model.covar_module.base_kernel.base_kernel.dCdx2(self.grid,self.grid)).t()
+                            LK = (model.covar_module.base_kernel.base_kernel.d2Cdx1dx2(self.grid,self.grid)-m.matmul(m.t())).add_jitter(1e-6)._cholesky()
+                            m = m.matmul(LCinv)
+                            dxidtError = LK.inverse().matmul(dxdtOde[:,i]-m.matmul(x[:,i]-model.mean_module.constant))
+                            lkh3 = - 0.5 / model.covar_module.outputscale * dxidtError.square().sum()
+                            lkh3 = lkh3 - 0.5 * self.grid_size * model.covar_module.outputscale.log() - LK.logdet()
+                            # loss = -(lkh1/self.grid_size + lkh2/ti.size(0) + lkh3/self.grid_size)
+                            loss = -(lkh1 + lkh2 + lkh3/self.grid_size*ti.size(0)) / self.grid_size
                             loss.backward()
                             optimizer.step()
                         model.eval()
@@ -234,32 +235,42 @@ class FMAGI(object):
                             nugget = noisescale / outputscale
                             grid_kernel = model.covar_module.base_kernel
                             base_kernel = grid_kernel.base_kernel
-                            # compute mean for grid points
+                            # compute mean for the grid points
                             LC = base_kernel(self.grid,self.grid).add_jitter(1e-6)._cholesky()
-                            ui = LC.solve_triangular(xi-mean, upper=False) / np.sqrt(outputscale)
+                            LCinv = LC.inverse()
+                            ui = LCinv.matmul(xi-mean) / np.sqrt(outputscale)
+                            # compute uq for the grid points
+                            q = grid_kernel(ti,ti).add_jitter(nugget)._cholesky().inverse().matmul(grid_kernel(ti,self.grid))
+                            LU = (base_kernel(self.grid,self.grid)-q.t().matmul(q)).add_jitter(1e-6)._cholesky().mul(np.sqrt(outputscale))
                             # compute gradient for grid points
-                            m = LC.solve_triangular(base_kernel.dCdx2(self.grid,self.grid).to_dense(), upper=False).t()
-                            LK = (base_kernel.d2Cdx1dx2(self.grid,self.grid)-m.matmul(m.t())).add_jitter(1e-6)._cholesky()
-                            # compute covariance for x|grid
-                            s = LC.solve_triangular(grid_kernel(self.grid,ti).to_dense(), upper=False).t()
-                            LQ = (grid_kernel(ti,ti).add_jitter(nugget) - s.matmul(s.t())).add_jitter(1e-6)._cholesky()
+                            m = LCinv.matmul(base_kernel.dCdx2(self.grid,self.grid)).t()
+                            LKinv = (base_kernel.d2Cdx1dx2(self.grid,self.grid)-m.matmul(m.t())).add_jitter(1e-6)._cholesky().inverse()
+                            m = m.matmul(LCinv)
+                            # assuming fixed noise, compute covariance for x|grid
+                            s = LCinv.matmul(grid_kernel(self.grid,ti))
+                            LQinv = (grid_kernel(ti,ti).add_jitter(nugget) - s.t().matmul(s)).add_jitter(1e-6)._cholesky().inverse()
+                            s = s.t().matmul(LCinv)
                             # store information
                             u[:,i] = ui
-                            gpmat[i] = {'LC':LC,'m':m,'LK':LK,'s':s,'LQ':LQ}
+                            gpmat[i] = {'LC':LC,'LCinv':LCinv,'m':m,'LKinv':LKinv,'s':s,'LQinv':LQinv,'LU':LU}
 
                 self.fOde.train()
                 for param in self.fOde.parameters():
                     param.requires_grad_(True)
                 for _ in range(1):
-                    dxdtOde = self.fOde(x)
+                    xr = x.clone()
+                    dxrdtOde = self.fOde(xr)
                     theta_optimizer.zero_grad()
                     lkh = torch.zeros(self.comp_size)
                     for i in range(self.comp_size):
+                        mean = self.gp_models[i].mean_module.constant.item()
                         outputscale = self.gp_models[i].covar_module.outputscale.item()
-                        dxidtGP = gpmat[i]['m'].matmul(u[:,i]) * np.sqrt(outputscale)
-                        dxidtError = gpmat[i]['LK'].solve_triangular(dxdtOde[:,i]-dxidtGP, upper=False)
-                        lkh[i] = -0.5/outputscale * dxidtError.square().mean()
+                        dxrdtError = gpmat[i]['LKinv'].matmul(dxrdtOde[:,i]-gpmat[i]['m'].matmul(xr[:,i]-mean))
+                        lkh[i] = -0.5/outputscale * dxrdtError.square().mean()
                     theta_loss = -torch.sum(lkh)
+                    theta_pn1 = dxrdtOde.norm(dim=1).square().mean()
+                    theta_pn2 = (torch.randn(self.comp_size) @ torch.func.vmap(torch.func.jacrev(self.fOde))(xr)).norm(dim=1).square().mean()
+                    theta_loss = theta_loss + kappa * (theta_pn1 + theta_pn2)
                     theta_loss.backward()
                     theta_optimizer.step()
                 if (decay_learning_rate):
@@ -272,9 +283,9 @@ class FMAGI(object):
         if (returnX):
             return (self.grid.numpy(), x.numpy())
 
-    def predict(self, tp, t0, x0, random=False, **params):
+    def predict(self, tp, t0, x0, random=False, method="ode", **params):
         # obtain prediction by ode numerical integration / gaussian process map
-        if (random):
+        if (method=="ode" and random):
             self.fOde.train() # training mode with dropout
         else:
             self.fOde.eval() # evaluation mode without dropout
@@ -291,7 +302,75 @@ class FMAGI(object):
             x0 = torch.tensor(x0).squeeze()
             if (x0.ndimension()==1):
                 x0 = x0.unsqueeze(0)
-        xp = itg.forward(x0[-1,:], torch.cat((t0[-1].unsqueeze(0),tp)), **params)[1:,:]      
+        if (method=="ode"):
+            xp = itg.forward(x0[-1,:], torch.cat((t0[-1].unsqueeze(0),tp)), **params)[1:,:]
+        else:
+            # gaussian process map method
+            # optimize for computing xp
+            xp = torch.empty(tp.size(0), self.comp_size)
+            for j in range(tp.size(0)):
+                ts = torch.cat((t0,tp[:(j+1)]))
+                xs = torch.cat((x0,xp[:(j+1),:]))
+                # obtain intial estimation by ode integration
+                xs[-1,:] = itg.forward(xs[-2,:], ts[-2:], **params)[-1,:].detach()
+                # get hyperparameters
+                with torch.no_grad():
+                    gpmat = []
+                    us = torch.empty_like(xs)
+                    for i in range(self.comp_size):
+                        model = self.gp_models[i]
+                        mean = model.mean_module.constant.item()
+                        outputscale = model.covar_module.outputscale.item()
+                        grid_kernel = model.covar_module.base_kernel
+                        base_kernel = grid_kernel.base_kernel
+                        # compute satte information
+                        LC = base_kernel(ts,ts).add_jitter(1e-6)._cholesky()
+                        LCinv = LC.inverse()
+                        us[:,i] = LCinv.matmul(xs[:,i]-mean) / np.sqrt(outputscale)
+                        # compute gaussian process gradient
+                        m = LCinv.matmul(base_kernel.dCdx2(ts,ts)).t()
+                        LKinv = (base_kernel.d2Cdx1dx2(ts,ts)-m.matmul(m.t())).add_jitter(1e-6)._cholesky().inverse()
+                        m = m.matmul(LCinv)
+                        gpmat.append({'LC':LC,'m':m,'LKinv':LKinv})
+                # perform optimization
+                uo = us[:-1,:].detach().clone() # fixed all prior points
+                un = us[-1:,:].detach().clone() # only optimize for the next
+                un.requires_grad_(True)
+                optimizer = torch.optim.Adam([un], lr=1e-2)
+                for _ in range(10):
+                    optimizer.zero_grad()
+                    # reconstruct x
+                    us = torch.cat((uo,un))
+                    xs = torch.empty_like(us)
+                    for i in range(self.comp_size):
+                        model = self.gp_models[i]
+                        mean = model.mean_module.constant.item()
+                        outputscale = model.covar_module.outputscale.item()
+                        xs[:,i] = mean + np.sqrt(outputscale) * gpmat[i]['LC'].matmul(us[:,i])
+                    dxdtOde = self.fOde(xs)
+                    lkh = torch.zeros((self.comp_size, 2))
+                    for i in range(self.comp_size):
+                        model = self.gp_models[i]
+                        mean = model.mean_module.constant.item()
+                        outputscale = model.covar_module.outputscale.item()
+                        # p(X[I] = x[I]) = P(U[I] = u[I])
+                        lkh[i,0] = -0.5 * us[:,i].square().sum()
+                        # p(X'[I]=f(x[I],theta)|X(I)=x(I))
+                        dxidtError = gpmat[i]['LKinv'].matmul(dxdtOde[:,i]-gpmat[i]['m'].matmul(xs[:,i]-mean))
+                        lkh[i,1] = -0.5/outputscale * dxidtError.square().sum()
+                    loss = -torch.sum(lkh)
+                    loss.backward()
+                    optimizer.step()
+                # reconstruct x
+                un.requires_grad_(False)
+                us = torch.cat((uo,un))
+                xs = torch.empty_like(us)
+                for i in range(self.comp_size):
+                    model = self.gp_models[i]
+                    mean = model.mean_module.constant.item()
+                    outputscale = model.covar_module.outputscale.item()
+                    xs[:,i] = mean + np.sqrt(outputscale) * gpmat[i]['LC'].matmul(us[:,i])
+                xp[j,:] = xs[-1,:]                    
         t = torch.cat((t0,tp))
         x = torch.cat((x0,xp))
         return (t.numpy(), x.numpy())
