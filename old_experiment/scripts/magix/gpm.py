@@ -103,7 +103,8 @@ def GPTrain(train_x, train_y, kernel=None, noisy=True,
         log_lambda = torch.tensor(np.log(1e-6))
         optimizer = torch.optim.Adam([kernel.log_lengthscale], lr=1e-2)
     # training
-    prev_loss = np.Inf
+    # prev_loss = np.Inf
+    prev_loss = np.inf
     for i in range(max_iter):
         optimizer.zero_grad()
         R = kernel.forward(train_x) + torch.exp(log_lambda) * torch.eye(n)

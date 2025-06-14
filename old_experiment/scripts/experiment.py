@@ -7,7 +7,18 @@ warnings.filterwarnings("ignore")
 
 import time
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+import tensorflow_probability as tfp
+import types
+tf.contrib = types.SimpleNamespace(
+    distributions=types.SimpleNamespace(
+        MultivariateNormalFullCovariance = tfp.distributions.MultivariateNormalFullCovariance,
+        MultivariateNormalDiag           = tfp.distributions.MultivariateNormalDiag
+    )
+)
+
 import torch
 from optparse import OptionParser
 
