@@ -37,7 +37,7 @@ class ODERK4(Integrator):
     def forward(self,x0,ts):
         #Nt = x0.shape[0]
         Nt = len(x0)
-        Xs = np.zeros(Nt,dtype=np.object)
+        Xs = np.zeros(Nt,dtype=object) #원래 object 대신 np.object 였음. ..
         for i in range(Nt):
             time_grid = ops.convert_to_tensor(ts[i], preferred_dtype=float_type, name='t')
             # y0 = ops.convert_to_tensor(x0[i,:].reshape((1,-1)), name='y0')
@@ -75,7 +75,7 @@ class SDEEM(Integrator):
         self.s = s
 
     def forward(self,x0,ts,Nw=1):
-        Xs = np.zeros(len(ts),dtype=np.object)
+        Xs = np.zeros(len(ts),dtype=object) #원래 object 대신 np.object 
         for i in range(len(ts)):
             t = np.linspace(0,np.max(ts[i]),(len(ts[i])-1)*self.s+1)
             t = np.unique(np.sort(np.hstack((t,ts[i]))))

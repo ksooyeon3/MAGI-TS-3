@@ -1,8 +1,20 @@
-import tensorflow as tf
+# import tensorflow as tf
 import numpy as np
 import pickle
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+# monkey-patch the old 1.x names back on tf:
+tf.global_variables_initializer = tf.compat.v1.global_variables_initializer
+tf.truncated_normal          = tf.compat.v1.truncated_normal      # if used
+tf.train.AdamOptimizer       = tf.compat.v1.train.AdamOptimizer   # if used
+# you already did:
+tf.cholesky                  = tf.linalg.cholesky
+tf.matrix_triangular_solve   = tf.linalg.triangular_solve
+
 
 float_type = tf.float64
+
+
 
 from .npde import NPODE, NPSDE, BrownianMotion
 from .kernels import OperatorKernel
@@ -51,7 +63,8 @@ def build_model(sess,t,Y,model='sde',sf0=1.0,ell0=[2,2],sfg0=1.0,ellg0=[1e5],
                         fix_Z=True,fix_U=True,fix_sn=True)
         U0 = tmp.f(X=Z0)
         if whiten:
-            Lz = tf.cholesky(kern.K(Z0))
+            # Lz = tf.cholesky(kern.K(Z0))
+            Lz = tf.linalg.cholesky(kern.K(Z0))
             U0 = tf.matrix_triangular_solve(Lz, U0, lower=True)
         U0 = sess.run(U0)
         return U0
