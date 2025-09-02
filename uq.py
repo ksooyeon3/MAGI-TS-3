@@ -8,6 +8,8 @@ from scipy.integrate import odeint
 from scripts.magix.dynamic import nnSTModule, nnMTModule  # MAGI-X NN module
 from scripts.magix.inference import FMAGI                 # MAGI-X inference
 
+#Hes1 도 log transformed data로 바꿔야함!!! (아직 안바꿈)
+
 
 # 1. UQ metric utilities
 
@@ -123,6 +125,16 @@ def Hes1(y, t, a, b, c, d, e, f, g):
     dHdt = -a*P*H + f/(1 + P**2) - g*H
     return (dPdt, dMdt, dHdt)
 
+def Hes1_log(y, t, a, b, c, d, e, f, g):
+    # y = log([P, M, H])
+    P, M, H = np.exp(y)
+
+    dPdt = -a*P*H + b*M - c*P
+    dMdt = -d*M + e/(1 + P**2)
+    dHdt = -a*P*H + f/(1 + P**2) - g*H
+
+    # dy/dt = (dx/dt) / x  (체인룰)
+    return [dPdt / P, dMdt / M, dHdt / H]
 # ---------- Truth simulators ----------
 def simulate_FN():
     a, b, c = 0.2, 0.2, 3.0
@@ -148,6 +160,13 @@ def simulate_Hes1():
     X = odeint(Hes1, (P0, M0, H0), t, args=(a, b, c, d, e, f, g))
     return t, X
 
+def simulate_Hes1_log():
+    a, b, c, d, e, f, g = 0.022, 0.3, 0.031, 0.028, 0.5, 20.0, 0.3
+    P0, M0, H0 = 1.438575, 2.037488, 17.90385
+    y0 = np.log([P0, M0, H0])           # 로그 초기값
+    t = np.linspace(0, 640, 1281)
+    Y = odeint(Hes1_log, y0, t, args=(a, b, c, d, e, f, g))  # 로그 상태로 적분
+    return t, Y  # Y는 log-space (모델/관측과 일관)
 
 # 4) Observation maker (same style you used)
 
@@ -226,12 +245,12 @@ def run_system(system_name,
 # 6) Orchestrator: run FN / LV / Hes1 and print a paper-ready table
 def run_all_systems(save_csv_path=None):
     jobs = [
-        dict(name='FN',   sim=simulate_FN,     N_train=41, noise=[0.0, 0.0],
+        dict(name='FN',   sim=simulate_FN,     N_train=41, noise=[0.1, 0.1],
              lr=1e-3, max_epoch=2500, dropout_p=0.1),
-        dict(name='LV',   sim=simulate_LV_log, N_train=41, noise=[0.0, 0.0],
+        dict(name='LV',   sim=simulate_LV_log, N_train=41, noise=[0.1, 0.1],
              lr=1e-3, max_epoch=2500, dropout_p=0.1),
-        dict(name='Hes1', sim=simulate_Hes1,   N_train=41, noise=[0.0, 0.0, 0.0],
-             lr=5e-4, max_epoch=4000, dropout_p=0.1),
+        dict(name='Hes1', sim=simulate_Hes1_log,   N_train=41, noise=[0.1, 0.1, 0.1],
+             lr=5e-4, max_epoch=2500, dropout_p=0.1),
     ]
 
     # defaults
@@ -428,8 +447,8 @@ def plot_all_systems(per_system, out_dir='uq_figs'):
     print(f'[Saved figures under {out_dir}/]')
 
 
-df_metrics, per_system = run_all_systems(save_csv_path="uq_metrics_without_noise.csv")
-plot_all_systems(per_system, out_dir='uq_figs_without_noise')
+df_metrics, per_system = run_all_systems(save_csv_path="uq_metrics.csv")
+plot_all_systems(per_system, out_dir='uq_figse')
 
 
 
