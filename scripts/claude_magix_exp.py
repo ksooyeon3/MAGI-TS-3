@@ -65,7 +65,7 @@ def main():
     example = parameters.get('data','example')
     if (example is None):
         raise ValueError('parameter data: example must be provided!')
-    data = np.loadtxt('data/%s.txt' %(example))
+    data = np.loadtxt('data/321/%s.txt' %(example))
     tdata = data[:,0] # time
     xdata = data[:,1:] # component values
     no_comp = xdata.shape[1] # number of components
@@ -75,6 +75,7 @@ def main():
         no_train = int((tdata.size-1)/2) + 1
         parameters.add('data','no_train',no_train)
     no_train = int(no_train)
+    FIT_END = int((tdata.size-1)/2) + 1  # 161 when tdata.size == 321
     obs_idx = np.linspace(0,int((tdata.size-1)/2),no_train).astype(int)
     # obtain noise parameters
     noise = parameters.get('data','noise')
@@ -263,9 +264,9 @@ def main():
             npode_output.write('%d,%s' %(k,run_time))
             for i in range(no_comp):
                 xi_error = xrecon[:,i] - xdata[:,i]
-                xi_rmse_imputation = np.sqrt(np.mean(np.square(xi_error[:no_train])))
+                xi_rmse_imputation = np.sqrt(np.mean(np.square(xi_error[:161])))
                 npode_output.write(',%s' %(xi_rmse_imputation))
-                xi_rmse_forecast = np.sqrt(np.mean(np.square(xi_error[no_train:])))
+                xi_rmse_forecast = np.sqrt(np.mean(np.square(xi_error[161:])))
                 npode_output.write(',%s' %(xi_rmse_forecast))
                 xi_rmse_overall = np.sqrt(np.mean(np.square(xi_error)))
                 npode_output.write(',%s' %(xi_rmse_overall))
@@ -304,9 +305,9 @@ def main():
             nrode_output.write('%d,%s' %(k,run_time))
             for i in range(no_comp):
                 xi_error = xrecon[:,i] - xdata[:,i]
-                xi_rmse_imputation = np.sqrt(np.mean(np.square(xi_error[:no_train])))
+                xi_rmse_imputation = np.sqrt(np.mean(np.square(xi_error[:161])))
                 nrode_output.write(',%s' %(xi_rmse_imputation))
-                xi_rmse_forecast = np.sqrt(np.mean(np.square(xi_error[no_train:])))
+                xi_rmse_forecast = np.sqrt(np.mean(np.square(xi_error[161:])))
                 nrode_output.write(',%s' %(xi_rmse_forecast))
                 xi_rmse_overall = np.sqrt(np.mean(np.square(xi_error)))
                 nrode_output.write(',%s' %(xi_rmse_overall))
