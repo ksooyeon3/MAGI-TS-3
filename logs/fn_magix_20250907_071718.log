@@ -1,0 +1,26 @@
+2025-09-07 07:17:21.550010: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1757229441.566595 3466600 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1757229441.571659 3466600 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1757229441.585585 3466600 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1757229441.585616 3466600 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1757229441.585618 3466600 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1757229441.585621 3466600 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-09-07 07:17:21.590400: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From /home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/tensorflow/python/compat/v2_compat.py:98: disable_resource_variables (from tensorflow.python.ops.resource_variables_toggle) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+running magix...
+1/2500 iteration: 28.628257
+500/2500 iteration: 1.487489
+1000/2500 iteration: 1.095369
+1500/2500 iteration: 0.976727
+2000/2500 iteration: 0.919004
+2500/2500 iteration: 0.883470
+Traceback (most recent call last):
+  File "/home/giung/MAGI-TS-3/scripts/claude_magix_exp_inferred.py", line 341, in <module>
+    main()
+  File "/home/giung/MAGI-TS-3/scripts/claude_magix_exp_inferred.py", line 243, in main
+    xi_err_fore = x_fore[:,i] - xdata[FIT_END:,i]
+ValueError: operands could not be broadcast together with shapes (161,) (160,) 

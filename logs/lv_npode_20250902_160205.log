@@ -1,0 +1,1419 @@
+2025-09-02 18:24:15.803805: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1756837455.820315 1439510 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1756837455.825337 1439510 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1756837455.839599 1439510 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1756837455.839629 1439510 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1756837455.839632 1439510 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1756837455.839634 1439510 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-09-02 18:24:15.844559: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From /home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/tensorflow/python/compat/v2_compat.py:98: disable_resource_variables (from tensorflow.python.ops.resource_variables_toggle) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2025-09-02 18:24:21.799036: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1756837461.880447 1439510 mlir_graph_optimization_pass.cc:425] MLIR V1 optimization pass is not enabled
+WARNING:tensorflow:From /home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/tensorflow_probability/python/distributions/distribution.py:342: MultivariateNormalFullCovariance.__init__ (from tensorflow_probability.python.distributions.mvn_full_covariance) is deprecated and will be removed after 2019-12-01.
+Instructions for updating:
+`MultivariateNormalFullCovariance` is deprecated, use `MultivariateNormalTriL(loc=loc, scale_tril=tf.linalg.cholesky(covariance_matrix))` instead.
+2025-09-02 18:24:24.096665: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:24:54.537194: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:25:26.113187: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:25:57.457374: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:26:30.607207: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:27:05.086320: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:27:40.732416: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:28:17.106289: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:28:52.115272: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:29:27.200298: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:30:03.145016: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:30:39.536037: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:31:15.001100: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:31:52.876244: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:32:29.618025: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:33:05.263457: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:33:40.975513: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:34:17.826424: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:34:54.137123: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:35:31.592082: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:36:07.945673: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:36:45.732058: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         257.704
+             100         144.107
+             200         136.409
+             300         133.909
+             400         132.446
+             500         131.590
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         238.449
+             100         142.933
+             200         136.307
+             300         133.982
+             400         132.806
+             500         132.198
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         242.941
+             100         145.312
+             200         135.775
+             300         133.501
+             400         132.446
+             500         131.770
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         257.731
+             100         143.741
+             200         135.995
+             300         134.468
+             400         132.357
+             500         131.680
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         249.817
+             100         143.931
+             200         136.521
+             300         133.778
+             400         132.432
+             500         131.675
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         235.689
+             100         141.931
+             200         135.048
+             300         133.550
+             400         131.948
+             500         131.151
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         252.062
+             100         141.935
+             200         135.601
+             300         133.460
+             400         132.341
+             500         131.706
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         268.766
+             100         142.099
+             200         135.177
+             300         132.947
+             400         132.105
+             500         132.035
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         259.938
+             100         144.127
+             200         136.061
+             300         133.605
+             400         132.377
+             500         131.681
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         230.578
+             100         141.643
+             200         135.423
+             300         133.437
+             400         132.112
+             500         131.396
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         257.588
+             100         143.319
+             200         135.763
+             300         133.496
+             400         132.217
+             500         131.440
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         260.086
+             100         145.179
+             200         137.634
+             300         134.925
+             400         133.303
+             500         132.288
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         217.536
+             100         140.266
+             200         134.985
+             300         133.115
+             400         132.015
+             500         131.314
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         247.722
+             100         141.604
+             200         136.124
+             300         133.033
+             400         131.906
+             500         131.185
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         261.172
+             100         145.452
+             200         137.121
+             300         134.449
+             400         132.851
+             500         131.952
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         226.114
+             100         142.360
+             200         135.736
+             300         133.569
+             400         132.299
+             500         131.483
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         223.212
+             100         141.892
+             200         136.317
+             300         133.656
+             400         132.703
+             500         131.633
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         250.015
+             100         141.948
+             200         135.468
+             300         133.065
+             400         131.917
+             500         132.018
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         263.270
+             100         147.482
+             200         138.459
+             300         135.362
+             400         133.646
+             500         132.567
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         222.797
+             100         141.936
+             200         135.801
+             300         133.728
+             400         132.390
+             500         131.493
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         240.743
+             100         141.527
+             200         135.159
+             300         133.136
+             400         132.079
+             500         132.067
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         259.278
+             100         146.230
+             200         139.623
+2025-09-02 18:37:23.497287: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:38:00.507766: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:38:38.073157: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:39:14.299873: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:39:51.172395: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:40:28.127334: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:41:05.105471: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:41:42.669696: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:42:20.557847: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:42:58.003500: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:43:36.587908: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:44:14.134002: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:44:51.953361: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:45:28.704885: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:46:06.314593: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:46:43.406979: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:47:20.364405: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:47:57.467181: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:48:34.756137: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:49:12.148914: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:49:52.045599: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:50:28.462879: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+             300         135.788
+             400         133.535
+             500         132.763
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         239.224
+             100         141.876
+             200         135.252
+             300         133.050
+             400         131.902
+             500         133.398
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         275.612
+             100         145.492
+             200         136.770
+             300         133.923
+             400         132.525
+             500         131.678
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         230.736
+             100         141.190
+             200         135.145
+             300         133.041
+             400         132.206
+             500         131.301
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         235.974
+             100         142.221
+             200         136.113
+             300         133.632
+             400         132.460
+             500         132.756
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         226.979
+             100         140.617
+             200         134.936
+             300         133.097
+             400         131.879
+             500         131.232
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         247.599
+             100         144.649
+             200         137.305
+             300         134.434
+             400         132.914
+             500         131.977
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         288.138
+             100         148.655
+             200         139.973
+             300         136.591
+             400         134.671
+             500         133.688
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         227.623
+             100         141.027
+             200         135.139
+             300         133.248
+             400         132.002
+             500         131.272
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         240.902
+             100         143.599
+             200         136.293
+             300         133.845
+             400         132.375
+             500         131.608
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         281.108
+             100         143.254
+             200         135.369
+             300         133.428
+             400         132.382
+             500         131.556
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         254.650
+             100         143.287
+             200         136.454
+             300         134.545
+             400         132.790
+             500         131.926
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         261.133
+             100         145.521
+             200         136.496
+             300         133.781
+             400         132.422
+             500         131.650
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         244.650
+             100         142.935
+             200         135.566
+             300         133.380
+             400         132.212
+             500         131.791
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         276.511
+             100         148.403
+             200         138.294
+             300         135.317
+             400         134.073
+             500         132.829
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         238.840
+             100         143.832
+             200         136.228
+             300         133.723
+             400         132.491
+             500         131.559
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         225.634
+             100         142.368
+             200         135.682
+             300         133.564
+             400         132.343
+             500         131.773
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         264.900
+             100         144.902
+             200         137.582
+             300         134.787
+             400         133.345
+             500         132.385
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         231.762
+             100         141.628
+             200         136.142
+             300         133.949
+             400         132.490
+             500         131.641
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         258.260
+             100         142.488
+             200         135.926
+             300         133.736
+             400         132.103
+             500         131.361
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         256.658
+             100         142.746
+             200         136.480
+             300         134.298
+             400         132.744
+             500         131.886
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         233.951
+             100         140.892
+             200         135.053
+             300         133.138
+             400         132.009
+             500         132.528
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+2025-09-02 18:51:04.207216: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:51:40.031124: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:52:16.423784: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:52:52.523582: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:53:29.061406: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:54:05.634318: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:54:42.703811: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:55:20.109043: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:55:56.963753: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:56:37.464360: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:57:15.310142: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:57:52.258738: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:58:29.276688: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:59:07.733658: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 18:59:44.927862: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:00:21.553472: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:00:58.230153: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:01:34.754589: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:02:10.734446: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:02:48.090852: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:03:24.480480: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+       iteration       objective
+               1         260.919
+             100         143.319
+             200         135.913
+             300         133.114
+             400         132.061
+             500         131.219
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         244.783
+             100         140.835
+             200         135.018
+             300         133.076
+             400         131.820
+             500         131.131
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         278.930
+             100         144.108
+             200         136.471
+             300         133.981
+             400         132.702
+             500         131.748
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         228.999
+             100         140.739
+             200         137.315
+             300         134.290
+             400         133.111
+             500         131.505
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         245.274
+             100         142.616
+             200         135.523
+             300         133.507
+             400         132.708
+             500         131.589
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         244.664
+             100         140.231
+             200         135.532
+             300         133.304
+             400         132.330
+             500         131.549
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         246.432
+             100         141.729
+             200         135.534
+             300         133.712
+             400         132.244
+             500         131.771
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         229.975
+             100         142.273
+             200         135.853
+             300         133.616
+             400         132.514
+             500         131.577
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         228.243
+             100         140.720
+             200         134.914
+             300         132.917
+             400         131.880
+             500         131.238
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         237.453
+             100         141.248
+             200         135.568
+             300         133.318
+             400         132.179
+             500         131.634
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         262.189
+             100         143.848
+             200         137.576
+             300         134.755
+             400         133.073
+             500         132.175
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         229.313
+             100         140.279
+             200         134.523
+             300         132.723
+             400         131.549
+             500         130.902
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         248.091
+             100         142.498
+             200         135.562
+             300         133.342
+             400         132.197
+             500         131.445
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         244.962
+             100         140.874
+             200         135.106
+             300         132.438
+             400         131.503
+             500         130.931
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         264.366
+             100         147.899
+             200         138.353
+             300         134.868
+             400         133.202
+             500         132.185
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         272.440
+             100         143.572
+             200         135.884
+             300         133.446
+             400         132.187
+             500         131.361
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         258.381
+             100         143.919
+             200         136.997
+             300         134.684
+             400         133.020
+             500         132.251
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         232.351
+             100         142.432
+             200         135.782
+             300         133.572
+             400         132.313
+             500         131.524
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         259.318
+             100         144.943
+             200         137.028
+             300         134.364
+             400         132.851
+             500         131.858
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         260.501
+             100         144.565
+             200         136.124
+             300         133.475
+             400         133.472
+             500         131.415
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         231.855
+             100         140.743
+             200         134.917
+             300         132.852
+             400         131.813
+             500         131.250
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         244.649
+             100         142.348
+             200         135.302
+             300         133.026
+             400         131.778
+             500         132.835
+Optimization ends.
+running npode...
+2025-09-02 19:04:01.285889: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:04:37.362906: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:05:14.043062: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:05:49.553271: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:06:25.587539: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:07:01.368651: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:07:37.366627: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:08:14.656054: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:08:50.187507: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:09:26.274969: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:10:04.825426: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:10:40.450395: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:11:15.898043: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:11:51.700211: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:12:28.201711: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:13:04.109930: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:13:40.849885: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:14:17.924766: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:14:55.336827: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:15:32.788260: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:16:10.830902: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:16:49.470444: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         242.066
+             100         142.346
+             200         135.050
+             300         133.025
+             400         131.957
+             500         131.362
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         243.998
+             100         142.451
+             200         135.880
+             300         133.724
+             400         134.829
+             500         131.606
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         255.120
+             100         141.737
+             200         135.719
+             300         133.692
+             400         132.686
+             500         131.951
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         265.506
+             100         142.953
+             200         135.809
+             300         133.454
+             400         132.445
+             500         131.450
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         220.169
+             100         141.867
+             200         135.811
+             300         133.505
+             400         132.150
+             500         131.327
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         253.297
+             100         143.373
+             200         135.468
+             300         133.222
+             400         132.392
+             500         131.417
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         257.137
+             100         144.300
+             200         136.645
+             300         134.064
+             400         132.616
+             500         131.656
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         243.450
+             100         145.318
+             200         137.582
+             300         135.069
+             400         133.664
+             500         132.381
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         232.802
+             100         142.137
+             200         135.272
+             300         133.241
+             400         131.963
+             500         131.676
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         261.736
+             100         143.689
+             200         136.208
+             300         133.973
+             400         135.417
+             500         131.811
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         275.283
+             100         147.634
+             200         138.343
+             300         135.244
+             400         133.611
+             500         132.582
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         251.643
+             100         142.680
+             200         136.101
+             300         134.186
+             400         135.897
+             500         132.439
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         257.729
+             100         141.527
+             200         134.751
+             300         132.847
+             400         131.545
+             500         130.908
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         256.559
+             100         142.223
+             200         135.735
+             300         133.546
+             400         132.386
+             500         131.567
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         239.727
+             100         142.081
+             200         135.440
+             300         133.226
+             400         131.961
+             500         131.247
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         261.930
+             100         142.612
+             200         135.653
+             300         133.148
+             400         131.972
+             500         131.247
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         233.125
+             100         142.775
+             200         136.039
+             300         133.550
+             400         132.271
+             500         131.488
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         240.748
+             100         142.212
+             200         135.574
+             300         133.135
+             400         131.868
+             500         132.332
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         242.032
+             100         144.756
+             200         136.562
+             300         134.030
+             400         132.785
+             500         132.046
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         255.483
+             100         141.910
+             200         135.627
+             300         133.368
+             400         132.320
+             500         131.529
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         229.750
+             100         141.395
+             200         135.499
+             300         133.398
+             400         133.895
+             500         132.274
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         242.704
+             100         143.092
+             200         136.409
+             300         134.010
+2025-09-02 19:17:26.505940: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:18:04.188111: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:18:41.507464: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:19:18.784400: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:19:56.117906: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:20:33.388583: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:21:09.964147: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:21:47.403102: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:22:24.411672: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:23:02.961258: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:23:42.932858: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:24:20.750980: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2025-09-02 19:24:59.282540: W tensorflow/c/c_api.cc:305] Operation '{name:'NPDE/sn/Assign' id:190 op device:{requested: '', assigned: ''} def:{{{node NPDE/sn/Assign}} = AssignVariableOp[_has_manual_control_dependencies=true, dtype=DT_DOUBLE, validate_shape=false](NPDE/sn, NPDE/softplus/inverse/softplus_inverse/SelectV2_2)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+             400         132.615
+             500         131.848
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         253.269
+             100         143.720
+             200         135.272
+             300         133.213
+             400         134.303
+             500         131.455
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         263.361
+             100         143.361
+             200         136.649
+             300         134.250
+             400         132.881
+             500         132.118
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         264.069
+             100         147.516
+             200         138.948
+             300         135.715
+             400         133.886
+             500         132.731
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         260.872
+             100         140.874
+             200         134.411
+             300         132.724
+             400         131.559
+             500         130.873
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         256.264
+             100         141.666
+             200         135.357
+             300         133.168
+             400         132.008
+             500         131.267
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         235.080
+             100         143.311
+             200         135.852
+             300         133.422
+             400         134.638
+             500         131.430
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         224.590
+             100         141.217
+             200         136.148
+             300         133.521
+             400         132.266
+             500         131.465
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         248.689
+             100         143.529
+             200         137.206
+             300         134.240
+             400         132.849
+             500         131.875
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         269.525
+             100         146.425
+             200         137.816
+             300         134.890
+             400         133.301
+             500         132.356
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         262.752
+             100         146.631
+             200         138.330
+             300         135.120
+             400         133.468
+             500         132.424
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         236.348
+             100         143.237
+             200         136.057
+             300         133.564
+             400         132.276
+             500         131.482
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         250.444
+             100         142.005
+             200         135.684
+             300         133.515
+             400         132.306
+             500         131.548
+Optimization ends.
+running npode...
+Model being initialized...
+Building loss function...
+Adam optimizer being initialized...
+Optimization starts.
+       iteration       objective
+               1         272.630
+             100         147.263
+             200         137.955
+             300         134.944
+             400         133.409
+             500         132.400
+Optimization ends.

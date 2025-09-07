@@ -1,0 +1,713 @@
+2025-09-07 09:03:16.361703: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1757235796.378143 3516679 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1757235796.383160 3516679 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1757235796.396676 3516679 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1757235796.396708 3516679 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1757235796.396710 3516679 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1757235796.396713 3516679 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-09-07 09:03:16.401226: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From /home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/tensorflow/python/compat/v2_compat.py:98: disable_resource_variables (from tensorflow.python.ops.resource_variables_toggle) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+running magix...
+1/2500 iteration: 25.045666
+500/2500 iteration: 1.390742
+1000/2500 iteration: 1.015776
+1500/2500 iteration: 0.949376
+2000/2500 iteration: 0.924852
+2500/2500 iteration: 0.910885
+running magix...
+1/2500 iteration: 22.977393
+500/2500 iteration: 1.127979
+1000/2500 iteration: 0.867642
+1500/2500 iteration: 0.826819
+2000/2500 iteration: 0.812116
+2500/2500 iteration: 0.804153
+running magix...
+1/2500 iteration: 29.823234
+500/2500 iteration: 1.488117
+1000/2500 iteration: 1.064186
+1500/2500 iteration: 0.945651
+2000/2500 iteration: 0.897641
+2500/2500 iteration: 0.874043
+running magix...
+1/2500 iteration: 41.441130
+500/2500 iteration: 1.507194
+1000/2500 iteration: 1.124550
+1500/2500 iteration: 1.037698
+2000/2500 iteration: 1.004356
+2500/2500 iteration: 0.986434
+running magix...
+1/2500 iteration: 19.916968
+500/2500 iteration: 1.088692
+1000/2500 iteration: 0.863420
+1500/2500 iteration: 0.816477
+2000/2500 iteration: 0.798185
+2500/2500 iteration: 0.787596
+running magix...
+1/2500 iteration: 56.533383
+500/2500 iteration: 1.731531
+1000/2500 iteration: 1.118166
+1500/2500 iteration: 0.981592
+2000/2500 iteration: 0.926389
+2500/2500 iteration: 0.898454
+running magix...
+1/2500 iteration: 25.104280
+500/2500 iteration: 1.023827
+1000/2500 iteration: 0.854123
+1500/2500 iteration: 0.823225
+2000/2500 iteration: 0.811697
+2500/2500 iteration: 0.805180
+running magix...
+1/2500 iteration: 38.280113
+500/2500 iteration: 1.387231
+1000/2500 iteration: 0.988333
+1500/2500 iteration: 0.911706
+2000/2500 iteration: 0.882200
+2500/2500 iteration: 0.864581
+running magix...
+1/2500 iteration: 28.395209
+500/2500 iteration: 1.116505
+1000/2500 iteration: 0.858820
+1500/2500 iteration: 0.804543
+2000/2500 iteration: 0.783996
+2500/2500 iteration: 0.772485
+running magix...
+1/2500 iteration: 27.923719
+500/2500 iteration: 1.469949
+1000/2500 iteration: 1.027850
+1500/2500 iteration: 0.941917
+2000/2500 iteration: 0.905504
+2500/2500 iteration: 0.885295
+running magix...
+1/2500 iteration: 39.282153
+500/2500 iteration: 1.377782
+1000/2500 iteration: 1.009376
+1500/2500 iteration: 0.914421
+2000/2500 iteration: 0.877087
+2500/2500 iteration: 0.858431
+running magix...
+1/2500 iteration: 38.129799
+500/2500 iteration: 1.762506
+1000/2500 iteration: 1.221433
+1500/2500 iteration: 1.101716
+2000/2500 iteration: 1.061140
+2500/2500 iteration: 1.040619
+running magix...
+1/2500 iteration: 23.269462
+500/2500 iteration: 1.211605
+1000/2500 iteration: 0.990076
+1500/2500 iteration: 0.940044
+2000/2500 iteration: 0.918977
+2500/2500 iteration: 0.905541
+running magix...
+1/2500 iteration: 41.388252
+500/2500 iteration: 1.345374
+1000/2500 iteration: 1.000714
+1500/2500 iteration: 0.930090
+2000/2500 iteration: 0.903433
+2500/2500 iteration: 0.889050
+running magix...
+1/2500 iteration: 40.965951
+500/2500 iteration: 2.137959
+1000/2500 iteration: 1.462941
+1500/2500 iteration: 1.326856
+2000/2500 iteration: 1.275797
+2500/2500 iteration: 1.252895
+running magix...
+1/2500 iteration: 24.981492
+500/2500 iteration: 0.966900
+1000/2500 iteration: 0.801942
+1500/2500 iteration: 0.763389
+2000/2500 iteration: 0.748655
+2500/2500 iteration: 0.740645
+running magix...
+1/2500 iteration: 53.686107
+500/2500 iteration: 1.880634
+1000/2500 iteration: 1.247286
+1500/2500 iteration: 1.070666
+2000/2500 iteration: 0.990604
+2500/2500 iteration: 0.947668
+running magix...
+1/2500 iteration: 35.166760
+500/2500 iteration: 1.353384
+1000/2500 iteration: 0.945404
+1500/2500 iteration: 0.870835
+2000/2500 iteration: 0.843266
+2500/2500 iteration: 0.828038
+running magix...
+1/2500 iteration: 44.314869
+500/2500 iteration: 1.892212
+1000/2500 iteration: 1.213129
+1500/2500 iteration: 1.080665
+2000/2500 iteration: 1.033879
+2500/2500 iteration: 1.011879
+running magix...
+1/2500 iteration: 28.485562
+500/2500 iteration: 1.627549
+1000/2500 iteration: 1.114530
+1500/2500 iteration: 1.046301
+2000/2500 iteration: 1.022772
+2500/2500 iteration: 1.008414
+running magix...
+1/2500 iteration: 30.954478
+500/2500 iteration: 1.509344
+1000/2500 iteration: 1.115461
+1500/2500 iteration: 1.032688
+2000/2500 iteration: 0.998376
+2500/2500 iteration: 0.979195
+running magix...
+1/2500 iteration: 28.758967
+500/2500 iteration: 1.379480
+1000/2500 iteration: 0.993030
+1500/2500 iteration: 0.920777
+2000/2500 iteration: 0.893246
+2500/2500 iteration: 0.877571
+running magix...
+1/2500 iteration: 44.807886
+500/2500 iteration: 3.051782
+1000/2500 iteration: 1.588822
+1500/2500 iteration: 1.376050
+2000/2500 iteration: 1.313619
+2500/2500 iteration: 1.284129
+running magix...
+1/2500 iteration: 35.495124
+500/2500 iteration: 1.516944
+1000/2500 iteration: 1.144177
+1500/2500 iteration: 1.056018
+2000/2500 iteration: 1.019475
+2500/2500 iteration: 0.999694
+running magix...
+1/2500 iteration: 52.213620
+500/2500 iteration: 2.231348
+1000/2500 iteration: 1.335381
+1500/2500 iteration: 1.104464
+2000/2500 iteration: 1.016672
+2500/2500 iteration: 0.977369
+running magix...
+1/2500 iteration: 42.750049
+500/2500 iteration: 1.792735
+1000/2500 iteration: 1.163029
+1500/2500 iteration: 1.013649
+2000/2500 iteration: 0.955734
+2500/2500 iteration: 0.925628
+running magix...
+1/2500 iteration: 20.896850
+500/2500 iteration: 1.267722
+1000/2500 iteration: 0.942296
+1500/2500 iteration: 0.879695
+2000/2500 iteration: 0.854287
+2500/2500 iteration: 0.839510
+running magix...
+1/2500 iteration: 38.137289
+500/2500 iteration: 1.325833
+1000/2500 iteration: 0.954845
+1500/2500 iteration: 0.868837
+2000/2500 iteration: 0.832870
+2500/2500 iteration: 0.813532
+running magix...
+1/2500 iteration: 26.429562
+500/2500 iteration: 1.379300
+1000/2500 iteration: 0.981400
+1500/2500 iteration: 0.873418
+2000/2500 iteration: 0.831860
+2500/2500 iteration: 0.810389
+running magix...
+1/2500 iteration: 29.808933
+500/2500 iteration: 1.411052
+1000/2500 iteration: 0.995782
+1500/2500 iteration: 0.927912
+2000/2500 iteration: 0.900743
+2500/2500 iteration: 0.885272
+running magix...
+1/2500 iteration: 20.340270
+500/2500 iteration: 1.344324
+1000/2500 iteration: 1.031179
+1500/2500 iteration: 0.977165
+2000/2500 iteration: 0.953047
+2500/2500 iteration: 0.939874
+running magix...
+1/2500 iteration: 34.056253
+500/2500 iteration: 1.224705
+1000/2500 iteration: 0.915800
+1500/2500 iteration: 0.857705
+2000/2500 iteration: 0.836117
+2500/2500 iteration: 0.824478
+running magix...
+1/2500 iteration: 23.044512
+500/2500 iteration: 1.142243
+1000/2500 iteration: 0.886864
+1500/2500 iteration: 0.852208
+2000/2500 iteration: 0.838278
+2500/2500 iteration: 0.829178
+running magix...
+1/2500 iteration: 25.024756
+500/2500 iteration: 1.118591
+1000/2500 iteration: 0.873262
+1500/2500 iteration: 0.837183
+2000/2500 iteration: 0.822179
+2500/2500 iteration: 0.813520
+running magix...
+1/2500 iteration: 35.480955
+500/2500 iteration: 1.512848
+1000/2500 iteration: 1.001418
+1500/2500 iteration: 0.906290
+2000/2500 iteration: 0.875428
+2500/2500 iteration: 0.860099
+running magix...
+1/2500 iteration: 30.126498
+500/2500 iteration: 1.195726
+1000/2500 iteration: 0.920230
+1500/2500 iteration: 0.873828
+2000/2500 iteration: 0.853508
+2500/2500 iteration: 0.841321
+running magix...
+1/2500 iteration: 24.572946
+500/2500 iteration: 1.144652
+1000/2500 iteration: 0.855207
+1500/2500 iteration: 0.809011
+2000/2500 iteration: 0.791137
+2500/2500 iteration: 0.780513
+running magix...
+1/2500 iteration: 38.084185
+500/2500 iteration: 1.708382
+1000/2500 iteration: 1.250052
+1500/2500 iteration: 1.099897
+2000/2500 iteration: 1.024522
+2500/2500 iteration: 0.975969
+running magix...
+1/2500 iteration: 30.876012
+500/2500 iteration: 1.508959
+1000/2500 iteration: 1.092303
+1500/2500 iteration: 1.023415
+2000/2500 iteration: 0.996216
+2500/2500 iteration: 0.981336
+running magix...
+1/2500 iteration: 26.267202
+500/2500 iteration: 1.123292
+1000/2500 iteration: 0.874763
+1500/2500 iteration: 0.818105
+2000/2500 iteration: 0.796163
+2500/2500 iteration: 0.782793
+running magix...
+1/2500 iteration: 45.800259
+500/2500 iteration: 1.750981
+1000/2500 iteration: 1.146841
+1500/2500 iteration: 1.025663
+2000/2500 iteration: 0.977465
+2500/2500 iteration: 0.952619
+running magix...
+1/2500 iteration: 47.384556
+500/2500 iteration: 1.524178
+1000/2500 iteration: 1.102591
+1500/2500 iteration: 1.035454
+2000/2500 iteration: 1.007587
+2500/2500 iteration: 0.990271
+running magix...
+1/2500 iteration: 44.028058
+500/2500 iteration: 2.073264
+1000/2500 iteration: 1.363178
+1500/2500 iteration: 1.213815
+2000/2500 iteration: 1.153682
+2500/2500 iteration: 1.120715
+running magix...
+1/2500 iteration: 40.228180
+500/2500 iteration: 1.705549
+1000/2500 iteration: 1.175815
+1500/2500 iteration: 1.030999
+2000/2500 iteration: 0.958619
+2500/2500 iteration: 0.915812
+running magix...
+1/2500 iteration: 21.860780
+500/2500 iteration: 1.133660
+1000/2500 iteration: 0.907136
+1500/2500 iteration: 0.839229
+2000/2500 iteration: 0.805278
+2500/2500 iteration: 0.784628
+running magix...
+1/2500 iteration: 39.082257
+500/2500 iteration: 1.896395
+1000/2500 iteration: 1.264678
+1500/2500 iteration: 1.145083
+2000/2500 iteration: 1.101512
+2500/2500 iteration: 1.076785
+running magix...
+1/2500 iteration: 57.520750
+500/2500 iteration: 2.397104
+1000/2500 iteration: 1.472319
+1500/2500 iteration: 1.294530
+2000/2500 iteration: 1.230671
+2500/2500 iteration: 1.199762
+running magix...
+1/2500 iteration: 19.000759
+500/2500 iteration: 1.006377
+1000/2500 iteration: 0.789089
+1500/2500 iteration: 0.752759
+2000/2500 iteration: 0.738431
+2500/2500 iteration: 0.729084
+running magix...
+1/2500 iteration: 21.853173
+500/2500 iteration: 1.029126
+1000/2500 iteration: 0.845533
+1500/2500 iteration: 0.809235
+2000/2500 iteration: 0.794884
+2500/2500 iteration: 0.786787
+running magix...
+1/2500 iteration: 32.191719
+500/2500 iteration: 1.686545
+1000/2500 iteration: 1.061122
+1500/2500 iteration: 0.964429
+2000/2500 iteration: 0.933779
+2500/2500 iteration: 0.917668
+running magix...
+1/2500 iteration: 31.417470
+500/2500 iteration: 1.696315
+1000/2500 iteration: 1.124544
+1500/2500 iteration: 1.023047
+2000/2500 iteration: 0.986212
+2500/2500 iteration: 0.966067
+running magix...
+1/2500 iteration: 28.872266
+500/2500 iteration: 1.630183
+1000/2500 iteration: 1.185789
+1500/2500 iteration: 1.046242
+2000/2500 iteration: 0.976296
+2500/2500 iteration: 0.935627
+running magix...
+1/2500 iteration: 29.328989
+500/2500 iteration: 1.206325
+1000/2500 iteration: 0.902984
+1500/2500 iteration: 0.835359
+2000/2500 iteration: 0.811982
+2500/2500 iteration: 0.800149
+running magix...
+1/2500 iteration: 49.618960
+500/2500 iteration: 2.548910
+1000/2500 iteration: 1.472949
+1500/2500 iteration: 1.279244
+2000/2500 iteration: 1.209477
+2500/2500 iteration: 1.173533
+running magix...
+1/2500 iteration: 32.411301
+500/2500 iteration: 1.762890
+1000/2500 iteration: 1.073036
+1500/2500 iteration: 0.982550
+2000/2500 iteration: 0.956981
+2500/2500 iteration: 0.942483
+running magix...
+1/2500 iteration: 51.473299
+500/2500 iteration: 1.851061
+1000/2500 iteration: 1.191716
+1500/2500 iteration: 1.072249
+2000/2500 iteration: 1.023660
+2500/2500 iteration: 0.996432
+running magix...
+1/2500 iteration: 17.619088
+500/2500 iteration: 0.889055
+1000/2500 iteration: 0.788176
+1500/2500 iteration: 0.763081
+2000/2500 iteration: 0.752096
+2500/2500 iteration: 0.745641
+running magix...
+1/2500 iteration: 28.893343
+500/2500 iteration: 1.125430
+1000/2500 iteration: 0.929919
+1500/2500 iteration: 0.898983
+2000/2500 iteration: 0.884250
+2500/2500 iteration: 0.875468
+running magix...
+1/2500 iteration: 33.219566
+500/2500 iteration: 1.299517
+1000/2500 iteration: 0.933287
+1500/2500 iteration: 0.847642
+2000/2500 iteration: 0.815804
+2500/2500 iteration: 0.801807
+running magix...
+1/2500 iteration: 21.236632
+500/2500 iteration: 1.056286
+1000/2500 iteration: 0.824821
+1500/2500 iteration: 0.784020
+2000/2500 iteration: 0.768823
+2500/2500 iteration: 0.759456
+running magix...
+1/2500 iteration: 17.427973
+500/2500 iteration: 0.986524
+1000/2500 iteration: 0.815461
+1500/2500 iteration: 0.773266
+2000/2500 iteration: 0.755170
+2500/2500 iteration: 0.744572
+running magix...
+1/2500 iteration: 29.687511
+500/2500 iteration: 1.208149
+1000/2500 iteration: 0.900201
+1500/2500 iteration: 0.833053
+2000/2500 iteration: 0.809176
+2500/2500 iteration: 0.797493
+running magix...
+1/2500 iteration: 16.942800
+500/2500 iteration: 1.006086
+1000/2500 iteration: 0.782335
+1500/2500 iteration: 0.737263
+2000/2500 iteration: 0.721860
+2500/2500 iteration: 0.713663
+running magix...
+1/2500 iteration: 22.589446
+500/2500 iteration: 1.186758
+1000/2500 iteration: 0.941816
+1500/2500 iteration: 0.880505
+2000/2500 iteration: 0.852804
+2500/2500 iteration: 0.836973
+running magix...
+1/2500 iteration: 26.675934
+500/2500 iteration: 1.041405
+1000/2500 iteration: 0.842852
+1500/2500 iteration: 0.798850
+2000/2500 iteration: 0.782397
+2500/2500 iteration: 0.773212
+running magix...
+1/2500 iteration: 37.178586
+500/2500 iteration: 1.587483
+1000/2500 iteration: 1.027184
+1500/2500 iteration: 0.911930
+2000/2500 iteration: 0.874744
+2500/2500 iteration: 0.857518
+running magix...
+1/2500 iteration: 22.735398
+500/2500 iteration: 1.204975
+1000/2500 iteration: 0.886817
+1500/2500 iteration: 0.825710
+2000/2500 iteration: 0.801225
+2500/2500 iteration: 0.787113
+running magix...
+1/2500 iteration: 40.122732
+500/2500 iteration: 1.609607
+1000/2500 iteration: 1.024185
+1500/2500 iteration: 0.923603
+2000/2500 iteration: 0.888379
+2500/2500 iteration: 0.871198
+running magix...
+1/2500 iteration: 22.704381
+500/2500 iteration: 1.045443
+1000/2500 iteration: 0.863537
+1500/2500 iteration: 0.811378
+2000/2500 iteration: 0.789265
+2500/2500 iteration: 0.777692
+running magix...
+1/2500 iteration: 31.812466
+500/2500 iteration: 1.504895
+1000/2500 iteration: 1.173643
+1500/2500 iteration: 1.115321
+2000/2500 iteration: 1.090214
+2500/2500 iteration: 1.075011
+running magix...
+1/2500 iteration: 42.860339
+500/2500 iteration: 1.444102
+1000/2500 iteration: 1.028492
+1500/2500 iteration: 0.949003
+2000/2500 iteration: 0.916465
+2500/2500 iteration: 0.898122
+running magix...
+1/2500 iteration: 32.691617
+500/2500 iteration: 1.544190
+1000/2500 iteration: 1.062329
+1500/2500 iteration: 0.980060
+2000/2500 iteration: 0.948094
+2500/2500 iteration: 0.928065
+running magix...
+1/2500 iteration: 28.968969
+500/2500 iteration: 1.257022
+1000/2500 iteration: 0.952324
+1500/2500 iteration: 0.907724
+2000/2500 iteration: 0.894119
+2500/2500 iteration: 0.886878
+running magix...
+1/2500 iteration: 26.059257
+500/2500 iteration: 1.153821
+1000/2500 iteration: 0.874100
+1500/2500 iteration: 0.828730
+2000/2500 iteration: 0.811644
+2500/2500 iteration: 0.801698
+running magix...
+1/2500 iteration: 36.554941
+500/2500 iteration: 1.383852
+1000/2500 iteration: 0.961233
+1500/2500 iteration: 0.876613
+2000/2500 iteration: 0.843597
+2500/2500 iteration: 0.827514
+running magix...
+1/2500 iteration: 41.551654
+500/2500 iteration: 1.830452
+1000/2500 iteration: 1.122100
+1500/2500 iteration: 0.997219
+2000/2500 iteration: 0.948896
+2500/2500 iteration: 0.921322
+running magix...
+1/2500 iteration: 42.470710
+500/2500 iteration: 1.755726
+1000/2500 iteration: 1.143570
+1500/2500 iteration: 1.065925
+2000/2500 iteration: 1.042354
+2500/2500 iteration: 1.029063
+running magix...
+1/2500 iteration: 43.276939
+500/2500 iteration: 1.745133
+1000/2500 iteration: 1.090315
+1500/2500 iteration: 0.948717
+2000/2500 iteration: 0.900350
+2500/2500 iteration: 0.877357
+running magix...
+1/2500 iteration: 58.844045
+500/2500 iteration: 2.508097
+1000/2500 iteration: 1.533522
+1500/2500 iteration: 1.295500
+2000/2500 iteration: 1.190631
+2500/2500 iteration: 1.136743
+running magix...
+1/2500 iteration: 25.497220
+500/2500 iteration: 1.255902
+1000/2500 iteration: 0.974061
+1500/2500 iteration: 0.911521
+2000/2500 iteration: 0.887229
+2500/2500 iteration: 0.874332
+running magix...
+1/2500 iteration: 23.029343
+500/2500 iteration: 1.078609
+1000/2500 iteration: 0.882605
+1500/2500 iteration: 0.845374
+2000/2500 iteration: 0.830950
+2500/2500 iteration: 0.822094
+running magix...
+1/2500 iteration: 21.561990
+500/2500 iteration: 0.990582
+1000/2500 iteration: 0.799752
+1500/2500 iteration: 0.762772
+2000/2500 iteration: 0.749442
+2500/2500 iteration: 0.741289
+running magix...
+1/2500 iteration: 35.093629
+500/2500 iteration: 1.736537
+1000/2500 iteration: 1.171720
+1500/2500 iteration: 1.058433
+2000/2500 iteration: 1.005488
+2500/2500 iteration: 0.970545
+running magix...
+1/2500 iteration: 25.695703
+500/2500 iteration: 1.359536
+1000/2500 iteration: 1.017940
+1500/2500 iteration: 0.962546
+2000/2500 iteration: 0.943039
+2500/2500 iteration: 0.930907
+running magix...
+1/2500 iteration: 33.547194
+500/2500 iteration: 1.214239
+1000/2500 iteration: 0.892176
+1500/2500 iteration: 0.838574
+2000/2500 iteration: 0.820240
+2500/2500 iteration: 0.810255
+running magix...
+1/2500 iteration: 24.325440
+500/2500 iteration: 1.159813
+1000/2500 iteration: 0.855494
+1500/2500 iteration: 0.790798
+2000/2500 iteration: 0.768268
+2500/2500 iteration: 0.756621
+running magix...
+1/2500 iteration: 27.661082
+500/2500 iteration: 1.115069
+1000/2500 iteration: 0.887440
+1500/2500 iteration: 0.844935
+2000/2500 iteration: 0.832403
+2500/2500 iteration: 0.825991
+running magix...
+1/2500 iteration: 42.330799
+500/2500 iteration: 2.037233
+1000/2500 iteration: 1.202138
+1500/2500 iteration: 1.102584
+2000/2500 iteration: 1.069776
+2500/2500 iteration: 1.053334
+running magix...
+1/2500 iteration: 40.893894
+500/2500 iteration: 1.586517
+1000/2500 iteration: 1.092445
+1500/2500 iteration: 0.989831
+2000/2500 iteration: 0.949139
+2500/2500 iteration: 0.926859
+running magix...
+1/2500 iteration: 78.358755
+500/2500 iteration: 2.296475
+1000/2500 iteration: 1.301418
+1500/2500 iteration: 1.101189
+2000/2500 iteration: 1.035403
+2500/2500 iteration: 1.006791
+running magix...
+1/2500 iteration: 16.872109
+500/2500 iteration: 0.922490
+1000/2500 iteration: 0.775028
+1500/2500 iteration: 0.745282
+2000/2500 iteration: 0.733896
+2500/2500 iteration: 0.726932
+running magix...
+1/2500 iteration: 34.007406
+500/2500 iteration: 1.451117
+1000/2500 iteration: 0.995376
+1500/2500 iteration: 0.892936
+2000/2500 iteration: 0.848338
+2500/2500 iteration: 0.822003
+running magix...
+1/2500 iteration: 25.054046
+500/2500 iteration: 1.538768
+1000/2500 iteration: 1.023791
+1500/2500 iteration: 0.919372
+2000/2500 iteration: 0.884286
+2500/2500 iteration: 0.865323
+running magix...
+1/2500 iteration: 32.945602
+500/2500 iteration: 1.780267
+1000/2500 iteration: 1.143685
+1500/2500 iteration: 1.005974
+2000/2500 iteration: 0.960293
+2500/2500 iteration: 0.937785
+running magix...
+1/2500 iteration: 28.553780
+500/2500 iteration: 1.252828
+1000/2500 iteration: 0.965967
+1500/2500 iteration: 0.915887
+2000/2500 iteration: 0.892579
+2500/2500 iteration: 0.877470
+running magix...
+1/2500 iteration: 39.462168
+500/2500 iteration: 1.596220
+1000/2500 iteration: 1.111559
+1500/2500 iteration: 1.003443
+2000/2500 iteration: 0.966225
+2500/2500 iteration: 0.948047
+running magix...
+1/2500 iteration: 43.030611
+500/2500 iteration: 1.882080
+1000/2500 iteration: 1.251142
+1500/2500 iteration: 1.114969
+2000/2500 iteration: 1.061726
+2500/2500 iteration: 1.030237
+running magix...
+1/2500 iteration: 36.771851
+500/2500 iteration: 1.652139
+1000/2500 iteration: 1.093622
+1500/2500 iteration: 0.964074
+2000/2500 iteration: 0.913218
+2500/2500 iteration: 0.885197
+running magix...
+1/2500 iteration: 20.789896
+500/2500 iteration: 1.180233
+1000/2500 iteration: 0.919503
+1500/2500 iteration: 0.865010
+2000/2500 iteration: 0.841785
+2500/2500 iteration: 0.827727
+running magix...
+1/2500 iteration: 30.363125
+500/2500 iteration: 1.160379
+1000/2500 iteration: 0.880870
+1500/2500 iteration: 0.829628
+2000/2500 iteration: 0.809784
+2500/2500 iteration: 0.799143

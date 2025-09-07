@@ -448,7 +448,7 @@ def plot_all_systems(per_system, out_dir='uq_figs'):
 
 
 df_metrics, per_system = run_all_systems(save_csv_path="uq_metrics.csv")
-plot_all_systems(per_system, out_dir='uq_figse')
+plot_all_systems(per_system, out_dir='uq_figs')
 
 
 

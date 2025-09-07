@@ -1,0 +1,73 @@
+/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/linear_operator/utils/interpolation.py:71: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /pytorch/torch/csrc/utils/tensor_new.cpp:654.)
+  summing_matrix = cls(summing_matrix_indices, summing_matrix_values, size)
+
+=== Coverage@90% and Band Width (Fit vs Forecast) ===
+system   region coverage_90 width width_norm  N_train  N_samples   T  D
+    FN      fit        0.0% 0.000      0.000       41         50 322  2
+    FN forecast        0.0% 0.000      0.000       41         50 322  2
+    LV      fit        0.0% 0.000      0.000       41         50 322  2
+    LV forecast        0.0% 0.000      0.000       41         50 322  2
+  Hes1      fit        0.0% 0.000      0.000       81         50 322  3
+  Hes1 forecast        0.0% 0.000      0.000       81         50 322  3
+
+[Saved raw metrics to uq_metrics_fn_lv_hes1.csv]
+Traceback (most recent call last):
+  File "/home/giung/MAGI-TS-3/uq.py", line 395, in <module>
+    plot_all_systems(df_metrics, out_dir='uq_figs')
+  File "/home/giung/MAGI-TS-3/uq.py", line 382, in plot_all_systems
+    plot_uq_single_axis(
+  File "/home/giung/MAGI-TS-3/uq.py", line 277, in plot_uq_single_axis
+    t = sys_out['t_full']                  # (T,)
+  File "/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/pandas/core/series.py", line 1121, in __getitem__
+    return self._get_value(key)
+  File "/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/pandas/core/series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+  File "/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/pandas/core/indexes/range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: 't_full'
+/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/linear_operator/utils/interpolation.py:71: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /pytorch/torch/csrc/utils/tensor_new.cpp:654.)
+  summing_matrix = cls(summing_matrix_indices, summing_matrix_values, size)
+Traceback (most recent call last):
+  File "/home/giung/MAGI-TS-3/uq.py", line 395, in <module>
+    df_metrics, per_system = run_all_systems(save_csv_path="uq_metrics_fn_lv_hes1.csv")
+  File "/home/giung/MAGI-TS-3/uq.py", line 236, in run_all_systems
+    out = run_system(jb['name'], jb['sim'],
+  File "/home/giung/MAGI-TS-3/uq.py", line 201, in run_system
+    _, xinfer = model.map(max_epoch=max_epoch,
+  File "/home/giung/MAGI-TS-3/scripts/magix/inference.py", line 131, in map
+    theta_loss.backward()
+  File "/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/torch/_tensor.py", line 648, in backward
+    torch.autograd.backward(
+  File "/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/torch/autograd/__init__.py", line 353, in backward
+    _engine_run_backward(
+  File "/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/torch/autograd/graph.py", line 824, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/linear_operator/utils/interpolation.py:71: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /pytorch/torch/csrc/utils/tensor_new.cpp:654.)
+  summing_matrix = cls(summing_matrix_indices, summing_matrix_values, size)
+
+=== Coverage@90% and Band Width (Fit vs Forecast) ===
+system   region coverage_90              width         width_norm  N_train  N_samples   T  D
+    FN      fit       66.7%              0.166              0.054       41         50 322  2
+    FN forecast       92.5%              0.288              0.097       41         50 322  2
+    LV      fit       94.8%           2044.380            298.722       41         50 322  2
+    LV forecast       70.3% 96930221511194.078 14135303168782.176       41         50 322  2
+  Hes1      fit       90.3%              3.403              0.419       81         50 322  3
+  Hes1 forecast       95.6%              8.297              0.990       81         50 322  3
+
+[Saved raw metrics to uq_metrics_fn_lv_hes1.csv]
+[Saved figures under uq_figs/]
+/home/giung/miniconda3/envs/py39/lib/python3.9/site-packages/linear_operator/utils/interpolation.py:71: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /pytorch/torch/csrc/utils/tensor_new.cpp:654.)
+  summing_matrix = cls(summing_matrix_indices, summing_matrix_values, size)
+
+=== Coverage@90% and Band Width (Fit vs Forecast) ===
+system   region coverage_90 width width_norm  N_train  N_samples   T  D     lr  max_epoch  dropout_p  nn_hidden  grid_size
+    FN      fit       84.9% 0.169      0.055       41         50 322  2 0.0010       2500        0.1        512        161
+    FN forecast       98.1% 0.252      0.085       41         50 322  2 0.0010       2500        0.1        512        161
+    LV      fit       98.1% 0.174      0.055       41         50 322  2 0.0010       2500        0.1        512        161
+    LV forecast      100.0% 0.493      0.159       41         50 322  2 0.0010       2500        0.1        512        161
+  Hes1      fit       78.8% 2.885      0.343       41         50 322  3 0.0005       4000        0.1        512        161
+  Hes1 forecast       88.8% 7.947      1.001       41         50 322  3 0.0005       4000        0.1        512        161
+
+[Saved raw metrics to uq_metrics_without_noise.csv]
+[Saved figures under uq_figs_without_noise/]

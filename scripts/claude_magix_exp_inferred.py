@@ -227,6 +227,11 @@ def main():
                 x0=x0_fore,  # initial state (last inferred state)
                 random=False
             )
+        
+            # Align forecast arrays to ground-truth length (160)
+            if x_fore.shape[0] == tp_fore.shape[0] + 1:
+                x_fore = x_fore[1:, :]
+                t_pred = t_pred[1:]
 
             run_time = end_time - start_time
 
@@ -283,9 +288,9 @@ def main():
             npode_output.write('%d,%s' %(k,run_time))
             for i in range(no_comp):
                 xi_error = xrecon[:,i] - xdata[:,i]
-                xi_rmse_imputation = np.sqrt(np.mean(np.square(xi_error[:161])))
+                xi_rmse_imputation = np.sqrt(np.mean(np.square(xi_error[:FIT_END])))
                 npode_output.write(',%s' %(xi_rmse_imputation))
-                xi_rmse_forecast = np.sqrt(np.mean(np.square(xi_error[161:])))
+                xi_rmse_forecast = np.sqrt(np.mean(np.square(xi_error[FIT_END:])))
                 npode_output.write(',%s' %(xi_rmse_forecast))
                 xi_rmse_overall = np.sqrt(np.mean(np.square(xi_error)))
                 npode_output.write(',%s' %(xi_rmse_overall))
@@ -324,9 +329,9 @@ def main():
             nrode_output.write('%d,%s' %(k,run_time))
             for i in range(no_comp):
                 xi_error = xrecon[:,i] - xdata[:,i]
-                xi_rmse_imputation = np.sqrt(np.mean(np.square(xi_error[:161])))
+                xi_rmse_imputation = np.sqrt(np.mean(np.square(xi_error[:FIT_END])))
                 nrode_output.write(',%s' %(xi_rmse_imputation))
-                xi_rmse_forecast = np.sqrt(np.mean(np.square(xi_error[161:])))
+                xi_rmse_forecast = np.sqrt(np.mean(np.square(xi_error[FIT_END:])))
                 nrode_output.write(',%s' %(xi_rmse_forecast))
                 xi_rmse_overall = np.sqrt(np.mean(np.square(xi_error)))
                 nrode_output.write(',%s' %(xi_rmse_overall))
